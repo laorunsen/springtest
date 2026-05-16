@@ -1,3 +1,13 @@
 This is for springboot test or java test.
 Just Copy the template folder can create a springboot project for test.
 Also simple java code can write anywhere, but also write in 'simple' folder.
+
+add a filter:
+1. add XXXFilter.java implements Filter 
+2. overwrite doFilter and add @WebFilter in XXXFilter.java
+3. add @ServletComponantScan in XXXApplication.java
+
+add an interceptor:
+1. add XXXInterceptor.java implements HandlerInterceptor
+2. overwrite preHandle/postHandle/afterComplete 
+3. add InterceptorConfig.java implements WebMvcConfigurer and overwrite addInterceptors and add @configuration
