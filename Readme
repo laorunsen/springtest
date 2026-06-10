@@ -11,3 +11,19 @@ add an interceptor:
 1. add XXXInterceptor.java implements HandlerInterceptor
 2. overwrite preHandle/postHandle/afterComplete 
 3. add InterceptorConfig.java implements WebMvcConfigurer and overwrite addInterceptors and add @configuration
+
+add a custom starter:(with this, you should know how spring boot work with starter)
+1. implement your functional class, like FunA.java (no need @component)
+2. add autoconfigure class FunAConfiguration,  use @bean to new the FunA class.
+3. add file resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports 
+(in 2.7 name resources/META-INF/spring.factories, no use any more) to add the class 1'com.xx.xx.FunAConfiguration'
+4. maven clean and maven install
+5. if need, can add a config class to use @configurationproperity or @value, this config call need @component.   And also can make the functionaal call as a filter/interceptor, like spring security
+6. conditon control under @configuration or @bean in FunAconfiguration.clall.  like 
+@CondtionalOn[Property|Class|MissingClass|MissingBean|Resource|WebApplication], others all simeple.
+@CondtionalOnProperty(prefix="", name="", havingValue="", mathIfMissing=false)
+ 
+use spring execption:
+1. use @ExecptionHandler(xxx.class) (any special execption class or Execption.call for all other) for a method within any controller,  but only affect iner the controller.
+2. use @ControllerAdvise or @restcontrollerAdvise for a class,  then with the class, use @ExceptionHandler(xxx.class) for any mothods.    this is global execption handler.
+3. generally within any method, we return a map with Map<String, object>
