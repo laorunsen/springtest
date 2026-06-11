@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: demo
+  cache:
+    type: caffeine # 指定缓存实现为Caffeine
+    caffeine:
+      spec: maximumSize=100,expireAfterWrite=300s # 最大100条，写入后5分钟过期
+
+# Actuator配置：暴露缓存、指标端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: caches,metrics,health # 开放caches（缓存元信息）、metrics（Caffeine指标）
+  endpoint:
+    caches:
+      enabled: true
