@@ -1,0 +1,9 @@
+1. what is diffent between redis and caffeine?
+
+2. what is cache breakdown and how to handle it?
+
+3. what is cache penetration and how to handle it?
+
+4. what is cache avalanche and how to handle it?
+
+5. how to use redis to implement distribute lock ?

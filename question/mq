@@ -1,0 +1,15 @@
+1. what is the benifit to use mq?
+
+2. how to handle kafka message accumulation?
+
+3. how to handle kafka message loss?
+
+4. how to handle kafka message duplicate consumption?
+
+5. how to make kafka message ordering?
+
+6. what is different between kafka and rabbitmq?
+
+7. as SA, how to do type selection poc between kafka and rabbitmq?
+
+8. how to build an event-driven system with kafka?
